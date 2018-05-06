@@ -29,4 +29,17 @@ public class TileComponent : MonoBehaviour {
     {
         position = startPos;
     }
+    IEnumerator turnDangerCour(float time)
+    {
+        danger = true;
+        yield return new WaitForSeconds(time);
+        danger = false;
+    }
+    public void turnDanger(float time)
+    {
+        if (!danger)
+        {
+            StartCoroutine(turnDangerCour(time));
+        }
+    }
 }
