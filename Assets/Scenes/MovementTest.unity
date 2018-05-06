@@ -30625,7 +30625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735a540c52722d34298bfdc8ff303b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VulnerabilityTime: 2
+  VulnerabilityTime: 0.1
   Health: 100
   Vulnerable: 1
 --- !u!114 &2037311979
