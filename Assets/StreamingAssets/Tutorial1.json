@@ -1,0 +1,44 @@
+{ "height":5,
+ "infinite":false,
+ "layers":[
+        {
+         "data":[2, 2, 10, 2, 2, 2, 2, 10, 2, 2, 2, 10, 10, 10, 2, 2, 2, 10, 2, 2, 2, 2, 10, 2, 2],
+         "height":5,
+         "name":"BG",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":5,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+         "height":5,
+         "name":"IN",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":5,
+         "x":0,
+         "y":0
+        }],
+ "nextobjectid":1,
+ "orientation":"orthogonal",
+ "renderorder":"left-up",
+ "tiledversion":"1.1.5",
+ "tileheight":512,
+ "tilesets":[
+        {
+         "firstgid":1,
+         "source":"..\/..\/..\/..\/..\/Desktop\/Test.tsx"
+        }, 
+        {
+         "firstgid":82,
+         "source":"..\/..\/..\/..\/..\/Desktop\/TankTileset.tsx"
+        }],
+ "tilewidth":512,
+ "type":"map",
+ "version":1,
+ "width":5
+}

@@ -5,66 +5,40 @@ using UnityEngine;
 [RequireComponent(typeof(MapLoader))]
 public class CreateMap : MonoBehaviour
 { 
-    public List<GameObject> AllTileTypes;
+    [System.Serializable]
+    public struct TiledTile
+    {
+        public string name;
+        public int code;
+        public GameObject prefab;
+    }
+    public List<TiledTile> AllTiles;
 
 	public GameObject Tile;
 	public GameObject Player;
-	public float tileSize;
-	[Range(1,100)]
-	public int Width;
-	[Range(1,100)]
-	public int Height;
 
-	[SerializeField]
-	public float[,] MapMatrixPos;
-	public Vector3[,] MapMatrixVec;
-
-	public GameObject[,] MapMatrixGameObj;
+    public List<GameObject> MapGameObjList;
 	public Vector2 initialPlayerPos;
 
     [SerializeField]
     public MapLoader mapLoader;
 
-	void Start ()
+    public Vector3[,] MapMatrixVec;
+
+
+    void Start ()
 	{
 		GenerateMap();
         mapLoader = GetComponent<MapLoader>();
 	}
-    /*
-	public void GenerateMap()
-	{
-		if(transform.childCount == 0)
-		{
-			MapMatrixPos = new float[Width,Height];
-			MapMatrixVec = new Vector3[Width,Height];
-			MapMatrixGameObj = new GameObject[Width,Height];
-
-			for(int x = 0; x < Width; x++ )
-				{
-					for(int y = 0; y < Height; y++ )
-					{
-						MapMatrixVec[x,y] = new Vector3(x*tileSize,y*tileSize,0f);
-                        //MapMatrixGameObj[x,y] = Instantiate(Tile,MapMatrixVec[x,y],Quaternion.identity,this.transform);
-                        MapMatrixGameObj[x,y] = Instantiate(AllTileTypes[(int)Random.Range(0,AllTileTypes.Count)],MapMatrixVec[x,y],Quaternion.identity,this.transform);
-                }
-            }
-		}
-		initialPlayerPos = new Vector2 (Width/2,Height/2);
-		
-		var player = Instantiate(Player,new Vector3(initialPlayerPos.x*tileSize,initialPlayerPos.x*tileSize,0),Quaternion.identity);
-		player.GetComponent<PlayerMovement>().SetInitialPos(initialPlayerPos);
-        ActivateTile(initialPlayerPos);
-	}
-    */
     public void GenerateMap()
     {
         Map newMap = mapLoader.loadedMap;
+
+        MapMatrixVec = new Vector3[newMap.width, newMap.height];
+
         if (transform.childCount == 0)
         {
-            MapMatrixPos = new float[Width, Height];
-            MapMatrixVec = new Vector3[Width, Height];
-            MapMatrixGameObj = new GameObject[Width, Height];
-
             foreach (Layer layer in newMap.layers)
             {
                 var layerEmptyObjt = new GameObject(layer.name);
@@ -84,57 +58,92 @@ public class CreateMap : MonoBehaviour
                         y++;
                         x = 0;
                     }
-                    if (layer.name == "Base")
+                    foreach (TiledTile tile in AllTiles)
                     {
-                        switch (layer.data[pos])
+                        if(layer.data[pos] == 1)
                         {
-                            case 20:
-                                Debug.Log("WHAT " + y + ":" + x);
-                                MapMatrixVec[x, y] = new Vector3(x, -y, 0f);
-                                Debug.Log(x + y);
-                                MapMatrixGameObj[x, y] = Instantiate(AllTileTypes[(int)Random.Range(0, AllTileTypes.Count)], MapMatrixVec[x, y], Quaternion.identity, layerEmptyObjt.transform);
-                                break;
+                            initialPlayerPos = new Vector2(x, y);
+
+                            var player = Instantiate(Player, new Vector3(initialPlayerPos.x, -initialPlayerPos.y, 0), Quaternion.identity);
+                            player.GetComponent<PlayerMovement>().SetInitialPos(initialPlayerPos);
+                            ActivateTile(initialPlayerPos);
+                            break;
+                        }
+                        if (tile.code == layer.data[pos])
+                        {
+                            MapMatrixVec[x, y] = new Vector3(x, -y, 0f);
+                            MapGameObjList.Add(Instantiate(tile.prefab, MapMatrixVec[x, y], Quaternion.identity, layerEmptyObjt.transform));
+                            break;
                         }
                     }
-                    if (layer.name == "Interactive")
+                    /*
+                    if (layer.name == "BG")
+                    {
+                        foreach (TiledTile tile in AllTiles)
+                        {
+                            if(tile.code == layer.data[pos])
+                            {
+                                MapMatrixVec[x, y] = new Vector3(x, -y, 0f);
+                                MapGameObjList.Add(Instantiate(tile.prefab,MapMatrixVec[x, y], Quaternion.identity, layerEmptyObjt.transform));
+                                break;
+                            }
+                        }
+                    }    
+                    if (layer.name == "IN")
                     {
                         switch (layer.data[pos])
                         {
-                            case 3:
+                            case 1:
                                 initialPlayerPos = new Vector2(x,y);
 
-                                var player = Instantiate(Player, new Vector3(initialPlayerPos.x, initialPlayerPos.y, 0), Quaternion.identity);
+                                var player = Instantiate(Player, new Vector3(initialPlayerPos.x, -initialPlayerPos.y, 0), Quaternion.identity);
                                 player.GetComponent<PlayerMovement>().SetInitialPos(initialPlayerPos);
                                 ActivateTile(initialPlayerPos);
                                 break;
                         }
-                    }
+                    }*/
                 }
             }
         }
     }
-    public bool CheckNextPos(Vector2 nextPos)
+    public Vector3 CheckNextPos(Vector2 nextPos)
     {
-        if(nextPos.x > Width || nextPos.x < 0 || nextPos.y > Height || nextPos.y < 0)
+        int y = (int)nextPos.y;
+        int x = (int)nextPos.x;
+
+        int sum = x + y*5;
+        Debug.Log("SUM " + sum);
+
+        Map newMap = mapLoader.loadedMap;
+
+        if ((x < newMap.width || x > 0 || y < newMap.height || y > 0) && MapGameObjList[sum].GetComponent<TileComponent>().path)
         {
-            return false;
+            Debug.Log("Okay");
+            return MapGameObjList[sum].transform.position;
         }
         else
         {
-            return true;
+            Debug.Log("Not okay");
+            Terminal.WriteLine("Tile blocked");
+            return new Vector3(1,1,1);
         }
     }
     public void ActivateTile(Vector2 tilePosition)
     {
-        MapMatrixGameObj[(int)tilePosition.x,(int)tilePosition.y].GetComponent<TileComponent>().active = true;
+        MapGameObjList[(int)tilePosition.x + (int)tilePosition.y*5].GetComponent<TileComponent>().active = true;
     }
     public void DeactivateTile(Vector2 tilePosition)
     {
-        MapMatrixGameObj[(int)tilePosition.x, (int)tilePosition.y].GetComponent<TileComponent>().active = false;
+        MapGameObjList[(int)tilePosition.x + (int)tilePosition.y * 5].GetComponent<TileComponent>().active = false;
     }
-
     public void DestroyMap()
 	{
+        MapGameObjList.Clear();
+        if (Application.isPlaying)
+            Destroy(GameObject.Find("Player(Clone)"));
+        else
+            DestroyImmediate(GameObject.Find("Player(Clone)"));
+
 		for(int i =0;i < transform.childCount;i++)
 		{
             if(Application.isPlaying)

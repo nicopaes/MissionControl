@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
 	public AnimationCurve moveAnimCurve;
 
     private CreateMap _mapReference;
+
+    private GameObject[,] _mapMatrixObj; 
+
 	private Vector3[,] _mapMatrixVec;
 	[SerializeField]
 	private Vector2 _initialPos;	
@@ -92,15 +95,14 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if(!_moving)
 		{
-            if (_mapReference.CheckNextPos(new Vector2(_playerPositionVec2.x + direction.x, _playerPositionVec2.y + direction.y)))
+            if ((_mapReference.CheckNextPos(new Vector2(_playerPositionVec2.x + direction.x, _playerPositionVec2.y + direction.y)) != new Vector3(1,1,1)))
             {
                 _currentLerpTime = 0f;
                 _playerLastPosition = transform.position;
 
                 _playerLastDirection = direction;
                 _playerPositionVec2 += direction;
-
-                _playerTarget = _mapMatrixVec[(int)(_playerPositionVec2.x), (int)(_playerPositionVec2.y)];
+                _playerTarget = _mapReference.CheckNextPos(_playerPositionVec2);
             }			
 		}
 	}
@@ -121,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
 	}
     void OnUserInput(string input)
     {
+        Debug.Log("Input");
         switch (input.ToLower())
         {
             case "go east":
@@ -130,10 +133,10 @@ public class PlayerMovement : MonoBehaviour
                 Move(new Vector2(-1,0));
                 break;
             case "go south":
-                Move(new Vector2(0,-1));
+                Move(new Vector2(0,1));
                 break;
             case "go north":
-                Move(new Vector2(0,1));
+                Move(new Vector2(0,-1));
                 break;
             case "cancel":
                 Cancel();

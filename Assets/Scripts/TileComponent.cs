@@ -5,6 +5,7 @@ using UnityEngine;
 public class TileComponent : MonoBehaviour {
 
     public bool active;
+    public bool path;
 
     private void Update()
     {
