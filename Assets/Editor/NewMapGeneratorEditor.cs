@@ -15,9 +15,5 @@ public class MapLoaderEditor : Editor {
         {
             MG.LoadGameData();
         }
-        if (GUILayout.Button("GenerateMap"))
-        {
-            MG.LoadGameData();
-        }
     }
 }

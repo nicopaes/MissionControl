@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4945691712096690}
   - component: {fileID: 212666260194810134}
   - component: {fileID: 114956001136947828}
+  - component: {fileID: 114451437709264302}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -41,6 +42,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114451437709264302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1568033380509844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 735a540c52722d34298bfdc8ff303b78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VulnerabilityTime: 2
+  Health: 100
+  Vulnerable: 1
 --- !u!114 &114956001136947828
 MonoBehaviour:
   m_ObjectHideFlags: 1

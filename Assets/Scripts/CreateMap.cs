@@ -133,9 +133,15 @@ public class CreateMap : MonoBehaviour
             return new Vector3(1,1,1);
         }
     }
-    public void ActivateTile(Vector2 tilePosition)
+    public bool ActivateTile(Vector2 tilePosition)
     {
         MapGameObjList[(int)tilePosition.x + (int)tilePosition.y*5].GetComponent<TileComponent>().active = true;
+        if (MapGameObjList[(int)tilePosition.x + (int)tilePosition.y * 5].GetComponent<TileComponent>().danger == true)
+        {
+            return true;
+        }
+        else
+            return false;
     }
     public void DeactivateTile(Vector2 tilePosition)
     {
