@@ -1,0 +1,40 @@
+{ "height":5,
+ "infinite":false,
+ "layers":[
+        {
+         "data":[60, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 20],
+         "height":5,
+         "name":"Base",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":5,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "data":[0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":5,
+         "name":"Interactive",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":5,
+         "x":0,
+         "y":0
+        }],
+ "nextobjectid":1,
+ "orientation":"orthogonal",
+ "renderorder":"left-up",
+ "tiledversion":"1.1.5",
+ "tileheight":128,
+ "tilesets":[
+        {
+         "firstgid":1,
+         "source":"TankTileset.tsx"
+        }],
+ "tilewidth":128,
+ "type":"map",
+ "version":1,
+ "width":5
+}
