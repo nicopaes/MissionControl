@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4785494870505290}
   - component: {fileID: 212548534149268234}
   - component: {fileID: 114956048685309070}
+  - component: {fileID: 210304539645245858}
   m_Layer: 0
   m_Name: TileChao
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1838485907117812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.51, y: -1.46, z: 0}
+  m_LocalPosition: {x: -2.64, y: -1.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,6 +55,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 1
+  danger: 0
+  position: {x: 0, y: 0}
+--- !u!210 &210304539645245858
+SortingGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1838485907117812}
+  m_Enabled: 1
+  m_SortingLayerID: 1588834907
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!212 &212548534149268234
 SpriteRenderer:
   m_ObjectHideFlags: 1
