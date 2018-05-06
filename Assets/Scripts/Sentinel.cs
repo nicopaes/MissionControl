@@ -6,14 +6,17 @@ using UnityEngine;
 public class Sentinel : MonoBehaviour
 {
     public CreateMap cmap;
-    public List<Vector2> dir = new List<Vector2>{Vector2.right, Vector2.left, Vector2.up, Vector2.down };
+    public float rotateTime;
 
+    [Space]
+    public List<Vector2> dir = new List<Vector2>{Vector2.right, Vector2.left, Vector2.up, Vector2.down };   
+    [SerializeField]
     private int intDir = 0;
 
     private void OnEnable()
     {
         cmap = GameObject.FindObjectOfType<CreateMap>();
-        StartCoroutine(ChangeDir());
+        StartCoroutine(ChangeDir(rotateTime));
     }
     void WatchTile(Vector2 dir, Vector2 lastDir)
     {
@@ -38,12 +41,12 @@ public class Sentinel : MonoBehaviour
             cmap.MapGameObjList[sum].GetComponent<TileComponent>().danger = true;
         }
     }
-    IEnumerator ChangeDir()
+    IEnumerator ChangeDir(float rotateTime)
     {
         while(true)
         {
             WatchTile(dir[intDir],intDir==0?dir[3]:dir[intDir-1]);
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(rotateTime);
             intDir++;
             if (intDir > dir.Count -1)
                 intDir = 0;
