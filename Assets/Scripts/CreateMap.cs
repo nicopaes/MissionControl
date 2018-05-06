@@ -72,7 +72,12 @@ public class CreateMap : MonoBehaviour
                         if (tile.code == layer.data[pos])
                         {
                             MapMatrixVec[x, y] = new Vector3(x, -y, 0f);
-                            MapGameObjList.Add(Instantiate(tile.prefab, MapMatrixVec[x, y], Quaternion.identity, layerEmptyObjt.transform));
+                            GameObject newObj = Instantiate(tile.prefab, MapMatrixVec[x, y], Quaternion.identity, layerEmptyObjt.transform);
+                            if(newObj.GetComponent<TileComponent>())
+                            {
+                                newObj.GetComponent<TileComponent>().SetPosition(new Vector2(MapMatrixVec[x,y].x,-MapMatrixVec[x,y].y));
+                            }
+                            MapGameObjList.Add(newObj);
                             break;
                         }
                     }
