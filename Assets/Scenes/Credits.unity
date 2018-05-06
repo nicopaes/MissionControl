@@ -215,10 +215,7 @@ Prefab:
     - target: {fileID: 114800869134824038, guid: c46548f7b668a78409fa399c095e4e6b,
         type: 2}
       propertyPath: m_Text
-      value: 'ALL SYSTEMS ONLINE.
-
-
-        CHOOSE YOUR COURSE OF ACTION.'
+      value: DISPLAYING CREW MEMBER DATA.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c46548f7b668a78409fa399c095e4e6b, type: 2}

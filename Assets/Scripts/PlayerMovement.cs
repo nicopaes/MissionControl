@@ -94,7 +94,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown("up"))
 		{
-			Debug.Log("up");
 			Move(new Vector2(0,-1));
 		}
 		if(Input.GetKeyDown("down"))
@@ -118,6 +117,30 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if(!_moving)
 		{
+            for (int i = 0; i < _newMapReference.transform.GetChild(0).childCount; i++)
+            {
+                if ((Vector2)_newMapReference.transform.GetChild(0).GetChild(i).position == new Vector2(transform.position.x + direction.x, transform.position.y - direction.y))
+                {
+                    Debug.Log(_newMapReference.transform.GetChild(0).GetChild(i).name);
+                    if(_newMapReference.transform.GetChild(0).GetChild(i).GetComponent<TileComponent>().path)
+                    {
+                        _currentLerpTime = 0f;
+                        _playerLastPosition = transform.position;
+
+                        _playerLastDirection = direction;
+                        _playerPositionVec2 += direction;
+
+                        //_playerTarget = new Vector2(_playerPositionVec2.x, -_playerPositionVec2.y);
+                        _playerTarget = new Vector2(transform.position.x + direction.x, transform.position.y - direction.y);
+                    }
+                    else
+                    {
+                        Terminal.WriteLine("Tile Blocked");
+                    }
+                }
+
+            }
+            /*
             if ((_mapReference.CheckNextPos(new Vector2(_playerPositionVec2.x + direction.x, _playerPositionVec2.y + direction.y)) != new Vector3(1,1,1)))
             {
                 _currentLerpTime = 0f;
@@ -128,8 +151,8 @@ public class PlayerMovement : MonoBehaviour
 
                 _playerTarget = new Vector2(_playerPositionVec2.x,-_playerPositionVec2.y);
                 //_playerTarget = _mapReference.CheckNextPos(_playerPositionVec2);
-            }			
-		}
+            }*/
+        }
 	}
 	public void Cancel()
 	{
