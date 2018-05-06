@@ -7,6 +7,7 @@ public class Sentinel : MonoBehaviour
 {
     public CreateMap cmap;
     public float rotateTime;
+    public GameObject dangerProbe;
 
     [Space]
     public List<Vector2> dir = new List<Vector2>{Vector2.right, Vector2.left, Vector2.up, Vector2.down };   
@@ -41,11 +42,22 @@ public class Sentinel : MonoBehaviour
             cmap.MapGameObjList[sum].GetComponent<TileComponent>().danger = true;
         }
     }
+
+    void WatchTile(Vector2 dir)
+    {
+        //dangerProbe.transform.position = (Vector2)transform.position + dir;
+        dangerProbe.transform.localPosition = dir;
+        
+    }
+    private void Update()
+    {
+       
+    }
     IEnumerator ChangeDir(float rotateTime)
     {
         while(true)
         {
-            WatchTile(dir[intDir],intDir==0?dir[3]:dir[intDir-1]);
+            WatchTile(dir[intDir]);
             yield return new WaitForSeconds(rotateTime);
             intDir++;
             if (intDir > dir.Count -1)
