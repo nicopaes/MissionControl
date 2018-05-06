@@ -12,7 +12,7 @@ public class Sentinel : MonoBehaviour
     public float rotateTime;
     public GameObject dangerProbe;
 
-    public float dangerTime = 2;
+    public float dangerTime;
 
     [Space]
     public List<Vector2> dir = new List<Vector2>{Vector2.right, Vector2.left, Vector2.up, Vector2.down };   
