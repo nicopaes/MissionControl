@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 	public AnimationCurve moveAnimCurve;
 
     private CreateMap _mapReference;
+    private GameObject _newMapReference;
 
     private GameObject[,] _mapMatrixObj; 
 
@@ -36,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
 
         _mapReference = GameObject.Find("MAP").GetComponent<CreateMap>();
         _mapMatrixVec = _mapReference.MapMatrixVec;
+
+        _newMapReference = GameObject.Find("MAP");
 
         _playerTarget = transform.position;
     }
@@ -65,14 +68,31 @@ public class PlayerMovement : MonoBehaviour
 		}
         if (_perc >= 0.6f)
         {
-            _mapReference.DeactivateTile(_playerPositionVec2 - _playerLastDirection);
-            if (_mapReference.ActivateTile(_playerPositionVec2))
+            //_mapReference.DeactivateTile(_playerPositionVec2 - _playerLastDirection);
+            //if (_mapReference.ActivateTile(_playerPositionVec2))
+            //{
+            //    GetComponent<PlayerHealth>().TakeDamage(10);
+            //};
+        }
+        
+        for (int i = 0; i < _newMapReference.transform.GetChild(0).childCount; i++)
+        {
+            if (_newMapReference.transform.GetChild(0).GetChild(i).position == transform.position)
             {
-                GetComponent<PlayerHealth>().TakeDamage(10);
-            };
+                _newMapReference.transform.GetChild(0).GetChild(i).GetComponent<TileComponent>().active = true;
+                if(_newMapReference.transform.GetChild(0).GetChild(i).GetComponent<TileComponent>().active && _newMapReference.transform.GetChild(0).GetChild(i).GetComponent<TileComponent>().danger)
+                {
+                    GetComponent<PlayerHealth>().TakeDamage(10);
+                }
+            }
+            else
+            {
+                _newMapReference.transform.GetChild(0).GetChild(i).GetComponent<TileComponent>().active = false;
+            }
+            
         }
 
-		if(Input.GetKeyDown("up"))
+        if (Input.GetKeyDown("up"))
 		{
 			Debug.Log("up");
 			Move(new Vector2(0,-1));
@@ -105,8 +125,8 @@ public class PlayerMovement : MonoBehaviour
 
                 _playerLastDirection = direction;
                 _playerPositionVec2 += direction;
-                _playerTarget = new Vector2(_playerPositionVec2.x,-_playerPositionVec2.y);
 
+                _playerTarget = new Vector2(_playerPositionVec2.x,-_playerPositionVec2.y);
                 //_playerTarget = _mapReference.CheckNextPos(_playerPositionVec2);
             }			
 		}
