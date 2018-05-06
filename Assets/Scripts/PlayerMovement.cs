@@ -105,7 +105,9 @@ public class PlayerMovement : MonoBehaviour
 
                 _playerLastDirection = direction;
                 _playerPositionVec2 += direction;
-                _playerTarget = _mapReference.CheckNextPos(_playerPositionVec2);
+                _playerTarget = new Vector2(_playerPositionVec2.x,-_playerPositionVec2.y);
+
+                //_playerTarget = _mapReference.CheckNextPos(_playerPositionVec2);
             }			
 		}
 	}

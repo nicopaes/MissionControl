@@ -76,6 +76,7 @@ public class CreateMap : MonoBehaviour
                             if(newObj.GetComponent<TileComponent>())
                             {
                                 newObj.GetComponent<TileComponent>().SetPosition(new Vector2(MapMatrixVec[x,y].x,-MapMatrixVec[x,y].y));
+                                newObj.transform.name += " " + pos;
                             }
                             MapGameObjList.Add(newObj);
                             break;
@@ -123,7 +124,6 @@ public class CreateMap : MonoBehaviour
 
         if ((x < newMap.width || x > 0 || y < newMap.height || y > 0) && MapGameObjList[sum].GetComponent<TileComponent>().path)
         {
-            Debug.Log("Okay");
             return MapGameObjList[sum].transform.position;
         }
         else
