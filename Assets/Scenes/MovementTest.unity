@@ -156,6 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 1
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &42481300
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -320,6 +322,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &70368405
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -408,6 +412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &234474452
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -496,6 +502,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &244570428
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -584,6 +592,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &245994731
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -869,6 +879,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &415656892
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -957,6 +969,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 1
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &473087590
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1045,6 +1059,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 1
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &568457798
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1133,6 +1149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &591397738
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1208,6 +1226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &680825502
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1355,6 +1375,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &768730468
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1605,6 +1627,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &915120645
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1693,6 +1717,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   path: 1
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &955051487
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1877,6 +1903,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 1
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &1143569136
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2018,6 +2046,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &1201405086
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2106,6 +2136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &1213677821
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2181,6 +2213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &1225812472
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2282,6 +2316,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 1
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &1226151371
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2370,6 +2406,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &1273996494
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2458,6 +2496,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &1464974684
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2546,6 +2586,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &1614775587
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2634,6 +2676,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &1621421028
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2722,6 +2766,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &1676113055
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2810,6 +2856,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 1
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &1724553300
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2898,6 +2946,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &1769480051
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3033,6 +3083,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &1920564465
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3137,6 +3189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
 --- !u!212 &2071994454
 SpriteRenderer:
   m_ObjectHideFlags: 0
