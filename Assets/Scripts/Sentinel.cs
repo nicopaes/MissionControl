@@ -29,8 +29,8 @@ public class Sentinel : MonoBehaviour
         int sum = x + y * 5;
         int lsum = lx + ly * 5;
 
-        Debug.Log("COUNT " + sum);
-        Debug.Log("LCOUNT " + lsum);
+        //Debug.Log("COUNT " + sum);
+        //Debug.Log("LCOUNT " + lsum);
 
         if (cmap.MapGameObjList[sum].GetComponent<TileComponent>().path)
         {

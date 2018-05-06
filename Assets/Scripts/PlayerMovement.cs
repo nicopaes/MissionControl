@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[RequireComponent(typeof(PlayerHealth))]
 public class PlayerMovement : MonoBehaviour 
 {
 	public float duration;
@@ -66,17 +66,20 @@ public class PlayerMovement : MonoBehaviour
         if (_perc >= 0.6f)
         {
             _mapReference.DeactivateTile(_playerPositionVec2 - _playerLastDirection);
-            _mapReference.ActivateTile(_playerPositionVec2);
+            if (_mapReference.ActivateTile(_playerPositionVec2))
+            {
+                GetComponent<PlayerHealth>().TakeDamage(10);
+            };
         }
 
 		if(Input.GetKeyDown("up"))
 		{
 			Debug.Log("up");
-			Move(new Vector2(0,1));
+			Move(new Vector2(0,-1));
 		}
 		if(Input.GetKeyDown("down"))
 		{
-			Move(new Vector2(0,-1));
+			Move(new Vector2(0,1));
 		}
 		if(Input.GetKeyDown("left"))
 		{
