@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 4785494870505290}
   - component: {fileID: 212548534149268234}
   - component: {fileID: 114956048685309070}
+  - component: {fileID: 210240174007806170}
   m_Layer: 0
   m_Name: TileParede
   m_TagString: Untagged
@@ -758,6 +759,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   path: 0
+  danger: 0
+  position: {x: 0, y: 0}
+--- !u!210 &210240174007806170
+SortingGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1838485907117812}
+  m_Enabled: 1
+  m_SortingLayerID: 1588834907
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!212 &212548534149268234
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -790,8 +803,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1588834907
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 632419b438567d142a4bd9e2d0a1998a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
