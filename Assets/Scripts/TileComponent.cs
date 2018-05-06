@@ -6,6 +6,9 @@ public class TileComponent : MonoBehaviour {
 
     public bool active;
     public bool path;
+    public bool danger;
+
+    public Vector2 position;
 
     private void Update()
     {
@@ -13,9 +16,17 @@ public class TileComponent : MonoBehaviour {
         {
             GetComponent<SpriteRenderer>().color = Color.red;
         }
-        else
+        else if(danger)
+        {
+            GetComponent<SpriteRenderer>().color = Color.yellow;
+        }
+       else
         {
             GetComponent<SpriteRenderer>().color = Color.white;
         }
+    }
+    public void SetPosition(Vector2 startPos)
+    {
+        position = startPos;
     }
 }

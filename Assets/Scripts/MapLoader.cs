@@ -21,12 +21,13 @@ public class MapLoader : MonoBehaviour
             // Read the json from the file into a string
             string dataAsJson = File.ReadAllText(filePath);
 
-            Debug.Log(dataAsJson);
+            
             // Pass the json to JsonUtility, and tell it to create a GameData object from it
             loadedMap = JsonUtility.FromJson<Map>(dataAsJson);
-
-            // Retrieve the allRoundData property of loadedData
-            //allRoundData = loadedData.allRoundData;
+            if(loadedMap != null)
+            {
+                Debug.Log("Loaded: " + fileName);
+            }
         }
         else
         {
