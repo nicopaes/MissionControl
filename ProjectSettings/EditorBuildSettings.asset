@@ -4,4 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 819e957c6c6c6c3478bbf43a9d4e0e0d
+  - enabled: 1
+    path: Assets/Scenes/SpaceStation.unity
+    guid: 5596241e28f73f2408dcd1a4e7e691dd
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 12d08e03e08b992488f0ca2af79d1a67
+  - enabled: 1
+    path: Assets/Scenes/MovementTest.unity
+    guid: 80ef599df54957740895a6c39b1eabfb
+  m_configObjects: {}

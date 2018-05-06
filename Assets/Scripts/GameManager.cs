@@ -7,27 +7,41 @@ public class GameManager : MonoBehaviour {
 
 	bool gameHasEnded = false;
 
-	public void Crew()
+	public void Menu(string input)
 	{
-		SceneManager.LoadScene ("Credits");
-		Debug.Log ("CREW MEMBERS");
+		
+		Debug.Log("Input");
+		switch (input.ToLower())
+		{
+			case "crew":
+				SceneManager.LoadScene ("Credits");
+				Debug.Log ("CREW MEMBERS");
+				break;
+			case "access":
+				SceneManager.LoadScene ("SpaceStation");
+				Debug.Log ("ACCESS GRANTED");
+				break;
+			case "abort":
+				Application.Quit();
+				break;
+		}
 	}
 
-	public void Station()
+	public void StartGame(string input)
 	{
-		SceneManager.LoadScene ("SpaceStation");
-		Debug.Log ("ACCESS GRANTED");
-	}
+		switch (input.ToLower ()) 
+		{
+			case "launch":
+				SceneManager.LoadScene ("MovementTest");
+				Debug.Log ("LAUNCHING");
+				break;
 
-	public void StartGame()
-	{
-		SceneManager.LoadScene ("MovementTest");
-		Debug.Log ("LAUNCHING");
-	}
+			case "back":
+				SceneManager.LoadScene ("MainMenu");
+				Debug.Log ("RETURN");
+				break;
+		}
 
-	public void GameQuit()
-	{
-		//Application.Quit;
 	}
 
 	public void EndGame()
